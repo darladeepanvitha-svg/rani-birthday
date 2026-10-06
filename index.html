@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Rani 💖</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd6ec, #d9c2ff, #c7f4ff);
+}
+
+.screen {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+    position: relative;
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    color: #ff3f91;
+    font-size: clamp(30px, 7vw, 65px);
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #7c3aed;
+    font-size: clamp(24px, 5vw, 45px);
+    margin-bottom: 25px;
+}
+
+p {
+    color: #5b376d;
+    font-size: 20px;
+    max-width: 700px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    padding: 13px 30px;
+    margin: 10px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #ff4f9a;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ff2783;
+}
+
+.yes {
+    background: #7c3aed;
+}
+
+.no {
+    background: #ff709d;
+}
+
+.next {
+    background: #ff4f9a;
+    margin-top: 20px;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    animation: float 5s linear infinite;
+    font-size: 25px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* SCREEN 1 */
+.unicorn {
+    font-size: 110px;
+    position: absolute;
+    left: -150px;
+    animation: runUnicorn 4s ease-in-out forwards;
+}
+
+@keyframes runUnicorn {
+    0% {
+        left: -180px;
+        transform: scale(0.7);
+    }
+
+    70% {
+        left: 45%;
+        transform: scale(1.2);
+    }
+
+    100% {
+        left: 42%;
+        transform: scale(1);
+    }
+}
+
+.birthdayText {
+    margin-top: 170px;
+    opacity: 0;
+    animation: appear 1s ease forwards;
+    animation-delay: 3.5s;
+}
+
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}
+
+.screen1next {
+    opacity: 0;
+    animation: appear 1s ease forwards;
+    animation-delay: 5s;
+}
+
+/* Characters */
+.character {
+    font-size: 130px;
+    margin-bottom: 15px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.message {
+    font-size: 25px;
+    color: #ff3f91;
+    margin: 15px;
+    font-weight: bold;
+    animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Photo */
+.photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    margin: 15px;
+    animation: photoPop 1s ease;
+}
+
+@keyframes photoPop {
+    0% {
+        transform: scale(0) rotate(-20deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.wishBox {
+    max-width: 750px;
+    background: rgba(255,255,255,0.7);
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.finalText {
+    font-size: clamp(28px, 6vw, 55px);
+    color: #ff2990;
+    font-weight: bold;
+    animation: finalPop 1s ease;
+}
+
+@keyframes finalPop {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Mobile */
+@media(max-width:600px) {
+
+    .unicorn {
+        font-size: 80px;
+    }
+
+    .character {
+        font-size: 95px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 11px 25px;
+    }
+
+    .photo {
+        width: 210px;
+        height: 210px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart" style="left:5%; animation-delay:0s;">💖</div>
+<div class="heart" style="left:20%; animation-delay:2s;">💕</div>
+<div class="heart" style="left:40%; animation-delay:1s;">💗</div>
+<div class="heart" style="left:65%; animation-delay:3s;">💝</div>
+<div class="heart" style="left:85%; animation-delay:1.5s;">💖</div>
+
+
+<!-- SCREEN 1 -->
+<section class="screen active" id="screen1">
+
+    <div class="unicorn">🦄</div>
+
+    <div class="birthdayText">
+        <h1>Happy Birthday Rani! 🎂</h1>
+
+        <p>
+            Happy Birthday to you Rani 😊💖
+            <br>
+            A special little surprise is waiting for you...
+        </p>
+    </div>
+
+    <button class="next screen1next" onclick="nextScreen(2)">
+        Next ✨
+    </button>
+
+</section>
+
+
+<!-- SCREEN 2 -->
+<section class="screen" id="screen2">
+
+    <div id="cuteQuestion">
+
+        <div class="character">🎀</div>
+
+        <h2>Is Rani Reddy Cute? 💖</h2>
+
+        <button class="no" onclick="teddyAppears()">
+            No 🙈
+        </button>
+
+        <button class="yes" onclick="nextScreen(3)">
+            Yes 💖
+        </button>
+
+    </div>
+
+    <div id="teddyMessage" class="hidden">
+
+        <div class="character">🧸</div>
+
+        <div class="message">
+            Excuse meee! 😤
+            <br>
+            Rani is obviously CUTE! 💕
+        </div>
+
+        <p>
+            Come on... click YES! ✨
+        </p>
+
+        <button class="yes" onclick="nextScreen(3)">
+            YESSS 💖
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+<section class="screen" id="screen3">
+
+    <div id="friendQuestion">
+
+        <div class="character">🌸</div>
+
+        <h2>Did you know Deepu? 💕</h2>
+
+        <button class="yes" onclick="nextScreen(4)">
+            Yes 💖
+        </button>
+
+        <button class="no" onclick="pandaAppears()">
+            No 🙈
+        </button>
+
+    </div>
+
+
+    <div id="pandaMessage" class="hidden">
+
+        <div class="character">🐼</div>
+
+        <div class="message">
+            OHHH REALLY? 😤💗
+            <br>
+            The panda doesn't believe you!
+        </div>
+
+        <p>
+            Think again... You definitely know Deepu! 💕
+        </p>
+
+        <button class="yes" onclick="nextScreen(4)">
+            YES 💖
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+<section class="screen" id="screen4">
+
+    <div class="character">🎁</div>
+
+    <h2>Do you want to see what's next? ✨</h2>
+
+    <button class="yes" onclick="nextScreen(5)">
+        Yes 💖
+    </button>
+
+    <button class="no" onclick="dareMessage()">
+        No 🙈
+    </button>
+
+    <div id="dare" class="hidden">
+
+        <div class="message">
+            HOW DARE YOU! 😤😂
+            <br><br>
+            Pleaseeee click YES! 💖✨
+        </div>
+
+        <button class="yes" onclick="nextScreen(5)">
+            Okay YES 💕
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCREEN 5 -->
+<section class="screen" id="screen5">
+
+    <h1>🎂 Happy Birthday Lanii! 💖</h1>
+
+    <!-- CHANGE rani.jpg TO YOUR PHOTO FILE NAME -->
+    <img src="rani.jpg" class="photo" alt="Rani">
+
+    <div class="wishBox">
+
+        <p>
+            Happiest Birthday to the most special person! 💕
+            <br><br>
+
+            From the day we met, so many beautiful memories
+            have been created. From random conversations to
+            silly laughs, every little moment became special. ✨
+            <br><br>
+
+            I hope this birthday brings you lots of happiness,
+            beautiful memories and everything your heart wishes for. 🎀
+            <br><br>
+
+            Stay the same amazing, cute and wonderful person
+            you are! 💖
+        </p>
+
+    </div>
+
+    <button class="next" onclick="nextScreen(6)">
+        Next 💕
+    </button>
+
+</section>
+
+
+<!-- FINAL SCREEN -->
+<section class="screen" id="screen6">
+
+    <div class="character">🧸💖</div>
+
+    <div class="finalText">
+        I LOVE YOU SOOO MUCH
+        <br>
+        LAANIII LEDDYYY! 💖💖💖
+    </div>
+
+    <p style="margin-top:25px;">
+        Once again... HAPPY BIRTHDAY RANI! 🎂✨💕
+    </p>
+
+    <div style="font-size:50px; margin-top:20px;">
+        🎀 💖 🧸 💕 🎂 ✨ 🦄
+    </div>
+
+</section>
+
+
+<script>
+
+function nextScreen(number) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById("screen" + number).classList.add("active");
+
+}
+
+
+/* SCREEN 2 - TEDDY */
+
+function teddyAppears() {
+
+    document.getElementById("cuteQuestion").classList.add("hidden");
+
+    document.getElementById("teddyMessage").classList.remove("hidden");
+
+}
+
+
+/* SCREEN 3 - PANDA */
+
+function pandaAppears() {
+
+    document.getElementById("friendQuestion").classList.add("hidden");
+
+    document.getElementById("pandaMessage").classList.remove("hidden");
+
+}
+
+
+/* SCREEN 4 - HOW DARE */
+
+function dareMessage() {
+
+    document.getElementById("dare").classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
